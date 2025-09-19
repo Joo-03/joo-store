@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Minimalist White Tee",
+    "description": "Premium organic cotton t-shirt with perfect fit and ultra-soft feel.",
+    "price": 29.99,
+    "image": "/src/assets/tshirt.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Classic Denim Jacket",
+    "description": "Timeless denim jacket crafted from sustainable materials.",
+    "price": 89.99,
+    "image": "/src/assets/denim-jacket.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Comfort Lounge Pants",
+    "description": "Ultra-comfortable pants perfect for lounging and casual wear.",
+    "price": 45.99,
+    "image": "/src/assets/lounge-pants.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Essential Canvas Tote",
+    "description": "Durable canvas tote bag for everyday essentials and shopping.",
+    "price": 24.99,
+    "image": "/src/assets/canvas-tote.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Cozy Wool Sweater",
+    "description": "Soft merino wool sweater with timeless design and perfect warmth.",
+    "price": 79.99,
+    "image": "/src/assets/wool-sweater.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Sleek Leather Wallet",
+    "description": "Minimalist leather wallet with RFID protection and card slots.",
+    "price": 39.99,
+    "image": "/src/assets/leather-wallet.jpg"
+  }
+]
