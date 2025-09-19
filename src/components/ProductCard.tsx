@@ -28,7 +28,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="space-y-2 mb-4">
           <h3 className="font-semibold text-lg leading-tight">{product.title}</h3>
           <p className="text-muted-foreground text-sm leading-relaxed">{product.description}</p>
-          <p className="text-xl font-bold text-primary">${product.price}</p>
+          <p className="text-xl font-bold text-primary">{product.price} ج.م</p>
         </div>
         <Button
           onClick={handleAddToCart}

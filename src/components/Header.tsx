@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const Header = () => {
   const { getTotalItems } = useCart();
@@ -15,16 +16,25 @@ const Header = () => {
             متجر جو
           </Link>
           
-          <Link to="/cart">
-            <Button variant="ghost" size="sm" className="relative">
-              <ShoppingBag className="h-5 w-5" />
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full text-xs w-5 h-5 flex items-center justify-center font-medium">
-                  {totalItems}
-                </span>
-              )}
-            </Button>
-          </Link>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link to="/cart">
+                  <Button variant="ghost" size="sm" className="relative hover:bg-accent">
+                    <ShoppingCart className="h-6 w-6" />
+                    {totalItems > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full text-xs w-5 h-5 flex items-center justify-center font-medium">
+                        {totalItems}
+                      </span>
+                    )}
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>سلة التسوق ({totalItems} عنصر)</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
     </header>

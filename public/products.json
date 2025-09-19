@@ -1,44 +1,44 @@
 [
   {
     "id": 1,
-    "title": "هاتف ذكي متطور",
+    "title": "هاتف ذكي متطور - Advanced Smartphone",
     "description": "هاتف ذكي بأحدث التقنيات وتصميم أنيق مع كاميرا عالية الجودة.",
-    "price": 599.99,
+    "price": 11999,
     "image": "/src/assets/smartphone.jpg"
   },
   {
     "id": 2,
-    "title": "سماعات لاسلكية",
+    "title": "سماعات لاسلكية - Wireless Headphones",
     "description": "سماعات بلوتوث عالية الجودة مع إلغاء الضوضاء وصوت نقي.",
-    "price": 199.99,
+    "price": 3999,
     "image": "/src/assets/headphones.jpg"
   },
   {
     "id": 3,
-    "title": "لابتوب محمول",
+    "title": "لابتوب محمول - Portable Laptop",
     "description": "جهاز كمبيوتر محمول قوي ومناسب للعمل والدراسة والترفيه.",
-    "price": 899.99,
+    "price": 17999,
     "image": "/src/assets/laptop.jpg"
   },
   {
     "id": 4,
-    "title": "نظارات شمسية أنيقة",
+    "title": "نظارات شمسية أنيقة - Stylish Sunglasses",
     "description": "نظارات شمسية عصرية بحماية كاملة من الأشعة فوق البنفسجية.",
-    "price": 79.99,
+    "price": 1599,
     "image": "/src/assets/sunglasses.jpg"
   },
   {
     "id": 5,
-    "title": "ساعة ذكية",
+    "title": "ساعة ذكية - Smart Watch",
     "description": "ساعة ذكية متقدمة لتتبع اللياقة البدنية والإشعارات الذكية.",
-    "price": 249.99,
+    "price": 4999,
     "image": "/src/assets/smartwatch.jpg"
   },
   {
     "id": 6,
-    "title": "بنك طاقة محمول",
+    "title": "بنك طاقة محمول - Portable Power Bank",
     "description": "شاحن محمول بسعة كبيرة لشحن جميع أجهزتك في أي مكان.",
-    "price": 49.99,
+    "price": 999,
     "image": "/src/assets/powerbank.jpg"
   }
 ]

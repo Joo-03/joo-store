@@ -11,8 +11,8 @@ const Cart = () => {
     if (cartItems.length === 0) return;
 
     const message = `السلام عليكم! أرغب في طلب المنتجات التالية من متجر جو:\n\n${cartItems
-      .map(item => `• ${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`)
-      .join('\n')}\n\nالإجمالي: $${getTotalPrice().toFixed(2)}\n\nشكراً لكم!`;
+      .map(item => `• ${item.title} (x${item.quantity}) - ${(item.price * item.quantity).toFixed(2)} ج.م`)
+      .join('\n')}\n\nالإجمالي: ${getTotalPrice().toFixed(2)} ج.م\n\nشكراً لكم!`;
 
     const whatsappUrl = `https://wa.me/+201033725632?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -63,7 +63,7 @@ const Cart = () => {
                       <div className="flex-1">
                         <h3 className="font-semibold text-lg">{item.title}</h3>
                         <p className="text-muted-foreground text-sm">{item.description}</p>
-                        <p className="text-lg font-bold text-primary mt-2">${item.price}</p>
+                        <p className="text-lg font-bold text-primary mt-2">{item.price} ج.م</p>
                       </div>
                       <div className="flex flex-col items-end gap-3">
                         <Button
@@ -108,7 +108,7 @@ const Cart = () => {
                 <CardContent className="space-y-4">
                   <div className="flex justify-between text-lg font-semibold">
                     <span>الإجمالي:</span>
-                    <span className="text-primary">${getTotalPrice().toFixed(2)}</span>
+                    <span className="text-primary">{getTotalPrice().toFixed(2)} ج.م</span>
                   </div>
                   <Button
                     onClick={handleCheckout}
