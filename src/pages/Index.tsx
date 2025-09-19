@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Product } from '@/types/product';
 import ProductCard from '@/components/ProductCard';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 
 const Index = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,6 +16,7 @@ const Index = () => {
         const response = await fetch('/products.json');
         const data = await response.json();
         setProducts(data);
+        setFilteredProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {
@@ -21,6 +26,14 @@ const Index = () => {
 
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    const filtered = products.filter(product =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [searchTerm, products]);
 
   if (loading) {
     return (
@@ -47,7 +60,7 @@ const Index = () => {
       <section className="py-16 bg-gradient-subtle">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
-            أهلاً بك في <span className="text-primary">متجر جو</span>
+            أهلاً بك في <span className="text-primary">متجر جو - Joo Store</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up">
             اكتشف مجموعتنا المختارة من أحدث الإلكترونيات والاكسسوارات عالية الجودة.
@@ -58,17 +71,38 @@ const Index = () => {
       {/* Products Section */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-12">منتجاتنا</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">منتجاتنا</h2>
+          
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto mb-12">
+            <div className="relative">
+              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+              <Input
+                type="text"
+                placeholder="ابحث عن المنتجات..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pr-10 text-right"
+              />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {products.map((product, index) => (
-              <div
-                key={product.id}
-                className="animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <ProductCard product={product} />
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product, index) => (
+                <div
+                  key={product.id}
+                  className="animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <ProductCard product={product} />
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted-foreground text-lg">لا توجد منتجات مطابقة لبحثك</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
