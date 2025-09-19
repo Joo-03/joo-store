@@ -1,44 +1,44 @@
 [
   {
     "id": 1,
-    "title": "Minimalist White Tee",
-    "description": "Premium organic cotton t-shirt with perfect fit and ultra-soft feel.",
-    "price": 29.99,
-    "image": "/src/assets/tshirt.jpg"
+    "title": "هاتف ذكي متطور",
+    "description": "هاتف ذكي بأحدث التقنيات وتصميم أنيق مع كاميرا عالية الجودة.",
+    "price": 599.99,
+    "image": "/src/assets/smartphone.jpg"
   },
   {
     "id": 2,
-    "title": "Classic Denim Jacket",
-    "description": "Timeless denim jacket crafted from sustainable materials.",
-    "price": 89.99,
-    "image": "/src/assets/denim-jacket.jpg"
+    "title": "سماعات لاسلكية",
+    "description": "سماعات بلوتوث عالية الجودة مع إلغاء الضوضاء وصوت نقي.",
+    "price": 199.99,
+    "image": "/src/assets/headphones.jpg"
   },
   {
     "id": 3,
-    "title": "Comfort Lounge Pants",
-    "description": "Ultra-comfortable pants perfect for lounging and casual wear.",
-    "price": 45.99,
-    "image": "/src/assets/lounge-pants.jpg"
+    "title": "لابتوب محمول",
+    "description": "جهاز كمبيوتر محمول قوي ومناسب للعمل والدراسة والترفيه.",
+    "price": 899.99,
+    "image": "/src/assets/laptop.jpg"
   },
   {
     "id": 4,
-    "title": "Essential Canvas Tote",
-    "description": "Durable canvas tote bag for everyday essentials and shopping.",
-    "price": 24.99,
-    "image": "/src/assets/canvas-tote.jpg"
+    "title": "نظارات شمسية أنيقة",
+    "description": "نظارات شمسية عصرية بحماية كاملة من الأشعة فوق البنفسجية.",
+    "price": 79.99,
+    "image": "/src/assets/sunglasses.jpg"
   },
   {
     "id": 5,
-    "title": "Cozy Wool Sweater",
-    "description": "Soft merino wool sweater with timeless design and perfect warmth.",
-    "price": 79.99,
-    "image": "/src/assets/wool-sweater.jpg"
+    "title": "ساعة ذكية",
+    "description": "ساعة ذكية متقدمة لتتبع اللياقة البدنية والإشعارات الذكية.",
+    "price": 249.99,
+    "image": "/src/assets/smartwatch.jpg"
   },
   {
     "id": 6,
-    "title": "Sleek Leather Wallet",
-    "description": "Minimalist leather wallet with RFID protection and card slots.",
-    "price": 39.99,
-    "image": "/src/assets/leather-wallet.jpg"
+    "title": "بنك طاقة محمول",
+    "description": "شاحن محمول بسعة كبيرة لشحن جميع أجهزتك في أي مكان.",
+    "price": 49.99,
+    "image": "/src/assets/powerbank.jpg"
   }
 ]

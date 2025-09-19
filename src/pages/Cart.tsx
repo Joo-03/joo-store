@@ -10,9 +10,9 @@ const Cart = () => {
   const handleCheckout = () => {
     if (cartItems.length === 0) return;
 
-    const message = `Hello! I'd like to order the following items from Joo Store:\n\n${cartItems
+    const message = `السلام عليكم! أرغب في طلب المنتجات التالية من متجر جو:\n\n${cartItems
       .map(item => `• ${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`)
-      .join('\n')}\n\nTotal: $${getTotalPrice().toFixed(2)}\n\nThank you!`;
+      .join('\n')}\n\nالإجمالي: $${getTotalPrice().toFixed(2)}\n\nشكراً لكم!`;
 
     const whatsappUrl = `https://wa.me/+201033725632?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -23,16 +23,16 @@ const Cart = () => {
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-2xl mx-auto text-center">
-            <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
+            <h1 className="text-3xl font-bold mb-8">سلة التسوق</h1>
             <Card className="shadow-card">
               <CardContent className="p-12">
                 <div className="text-muted-foreground mb-6">
-                  <p className="text-lg">Your cart is empty</p>
-                  <p className="text-sm mt-2">Add some products to get started!</p>
+                  <p className="text-lg">سلة التسوق فارغة</p>
+                  <p className="text-sm mt-2">أضف بعض المنتجات للبدء!</p>
                 </div>
                 <Link to="/">
                   <Button className="bg-primary hover:bg-primary/90">
-                    Continue Shopping
+                    متابعة التسوق
                   </Button>
                 </Link>
               </CardContent>
@@ -47,7 +47,7 @@ const Cart = () => {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
+          <h1 className="text-3xl font-bold mb-8">سلة التسوق</h1>
           
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-4">
@@ -103,11 +103,11 @@ const Cart = () => {
             <div className="lg:col-span-1">
               <Card className="shadow-card sticky top-24">
                 <CardHeader>
-                  <CardTitle>Order Summary</CardTitle>
+                  <CardTitle>ملخص الطلب</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex justify-between text-lg font-semibold">
-                    <span>Total:</span>
+                    <span>الإجمالي:</span>
                     <span className="text-primary">${getTotalPrice().toFixed(2)}</span>
                   </div>
                   <Button
@@ -115,19 +115,19 @@ const Cart = () => {
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                     size="lg"
                   >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Checkout via WhatsApp
+                    <MessageCircle className="w-4 h-4 ml-2" />
+                    الدفع عبر واتساب
                   </Button>
                   <Button
                     variant="outline"
                     onClick={clearCart}
                     className="w-full"
                   >
-                    Clear Cart
+                    إفراغ السلة
                   </Button>
                   <Link to="/">
                     <Button variant="ghost" className="w-full">
-                      Continue Shopping
+                      متابعة التسوق
                     </Button>
                   </Link>
                 </CardContent>

@@ -35,8 +35,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
           className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-button hover:shadow-lg transition-all duration-200"
           size="sm"
         >
-          <Plus className="w-4 h-4 mr-2" />
-          Add to Cart
+          <Plus className="w-4 h-4 ml-2" />
+          أضف للسلة
         </Button>
       </CardContent>
     </Card>
