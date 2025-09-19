@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # ✅ latest
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # ✅ latest
         with:
           node-version: 18
           cache: npm
@@ -29,9 +29,9 @@ jobs:
         run: npm run build
 
       - name: Upload production-ready build files
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3   # ✅ upgraded
         with:
-          path: ./dist   # 👈 make sure this matches your Vite build output
+          path: ./dist   # make sure this matches your Vite build output
 
   deploy:
     needs: build
@@ -42,4 +42,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4   # ✅ upgraded
