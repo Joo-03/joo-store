@@ -14,7 +14,7 @@ const Cart = () => {
       .map(item => `• ${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`)
       .join('\n')}\n\nTotal: $${getTotalPrice().toFixed(2)}\n\nThank you!`;
 
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+201033725632?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
