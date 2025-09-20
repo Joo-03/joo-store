@@ -13,12 +13,29 @@ const Index = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        // Using the public URL as the base for Vite
         const response = await fetch('/products.json');
-        const data = await response.json();
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        let data = await response.json();
+        
+        // Update image paths based on the environment
+        data = data.map((product: any) => ({
+          ...product,
+          // In development, we need to prepend the public path
+          image: product.image.startsWith('/') ? 
+                 (import.meta.env.DEV ? '' : '/joo-store') + product.image : 
+                 product.image
+        }));
+        
         setProducts(data);
         setFilteredProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
+        // Set empty arrays to prevent errors in the UI
+        setProducts([]);
+        setFilteredProducts([]);
       } finally {
         setLoading(false);
       }

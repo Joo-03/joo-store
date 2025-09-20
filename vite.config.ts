@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  base: '/joo-store/',
+  base: process.env.NODE_ENV === 'production' ? '/joo-store/' : '/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
