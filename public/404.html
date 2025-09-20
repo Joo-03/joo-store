@@ -10,28 +10,35 @@
       const path = window.location.pathname;
       const search = window.location.search || '';
       const hash = window.location.hash || '';
-      
-      // If we're already at the root with a hash, let the SPA handle it
-      if (path.endsWith('/') || path.endsWith('/index.html')) {
-        // If we have a hash that doesn't start with #/, add it
-        if (hash && !hash.startsWith('#/')) {
-          window.location.replace(`${base}/index.html#/${hash.substring(1)}${search}`);
-        }
+
+      // If we're already at index.html, let the SPA handle the hash
+      if (path.endsWith('index.html')) {
         return;
       }
-      
-      // Remove the base if it's already in the path
-      const cleanPath = path.startsWith(base) ? path.substring(base.length) : path;
-      
-      // Create the new URL with hash-based routing
-      let route = cleanPath;
-      if (route.startsWith('/')) {
-        route = route.substring(1);
+
+      // Handle direct cart access
+      if (path.endsWith('/cart') || path.endsWith('/cart/')) {
+        window.location.replace(`${base}/index.html#/cart${search}`);
+        return;
       }
-      
-      // Redirect to the SPA with hash-based routing
-      const newUrl = `${base}/index.html#/${route}${search}${hash}`;
-      window.location.replace(newUrl);
+
+      // For any other path that's not the root
+      if (path !== '/' && !path.endsWith('/')) {
+        const cleanPath = path.startsWith(base) 
+          ? path.substring(base.length) 
+          : path;
+        
+        // Remove leading/trailing slashes
+        const route = cleanPath.replace(/^\/+|\/+$/g, '');
+        
+        if (route) {
+          window.location.replace(`${base}/index.html#/${route}${search}${hash}`);
+          return;
+        }
+      }
+
+      // Default redirect to home
+      window.location.replace(`${base}/index.html${search}${hash}`);
     })();
   </script>
 </head>
