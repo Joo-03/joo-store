@@ -22,12 +22,16 @@ export default defineConfig(({ mode }) => {
     base,
     define: {
       'import.meta.env.BASE_URL': JSON.stringify(base),
+      'import.meta.env.PROD': JSON.stringify(mode === 'production'),
+      'import.meta.env.DEV': JSON.stringify(mode !== 'production'),
     },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        "@assets": path.resolve(__dirname, "./src/assets"),
       },
     },
+    assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg'],
     build: {
       outDir: 'dist',
       assetsDir: 'assets',

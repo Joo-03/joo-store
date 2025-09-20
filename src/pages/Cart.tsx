@@ -1,22 +1,58 @@
-import { useCart } from '@/hooks/useCart';
+import { useState, useEffect, useCallback } from 'react';
+import { useCart } from '@/context/CartContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Minus, Plus, Trash2, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { cartItems, updateQuantity, removeFromCart, getTotalPrice, clearCart } = useCart();
+  const { 
+    cartItems, 
+    updateQuantity, 
+    removeFromCart, 
+    getTotalPrice, 
+    clearCart 
+  } = useCart();
 
-  const handleCheckout = () => {
+  // Log cart items whenever they change
+  useEffect(() => {
+    console.log('Cart items updated:', cartItems);
+  }, [cartItems]);
+
+  const handleCheckout = useCallback(() => {
     if (cartItems.length === 0) return;
 
-    const message = `السلام عليكم! أرغب في طلب المنتجات التالية من متجر جو:\n\n${cartItems
-      .map(item => `• ${item.title} (x${item.quantity}) - ${(item.price * item.quantity).toFixed(2)} ج.م`)
-      .join('\n')}\n\nالإجمالي: ${getTotalPrice().toFixed(2)} ج.م\n\nشكراً لكم!`;
+    try {
+      const message = `السلام عليكم!\nأرغب في طلب المنتجات التالية من متجر جو:\n\n${cartItems
+        .map(item => `• ${item.title}\n  الكود: ${item.code}\n  الكمية: ${item.quantity}`)
+        .join('\n\n')}\n\nشكراً لكم!`;
 
-    const whatsappUrl = `https://wa.me/+201033725632?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+      const whatsappUrl = `https://wa.me/+201033725632?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    } catch (error) {
+      console.error('Error during checkout:', error);
+    }
+  }, [cartItems, getTotalPrice]);
+
+  const handleUpdateQuantity = useCallback((code: string, newQuantity: number) => {
+    try {
+      console.log(`Updating quantity for item ${code} to ${newQuantity}`);
+      
+      // Call updateQuantity directly - it will handle validation and updates
+      updateQuantity(code, newQuantity);
+    } catch (error) {
+      console.error('Error updating quantity:', error);
+    }
+  }, [updateQuantity]);
+
+  const handleRemoveItem = useCallback((code: string) => {
+    try {
+      console.log('Removing item:', code);
+      removeFromCart(code);
+    } catch (error) {
+      console.error('Error removing item:', error);
+    }
+  }, [removeFromCart]);
 
   if (cartItems.length === 0) {
     return (
@@ -52,47 +88,49 @@ const Cart = () => {
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-4">
               {cartItems.map((item) => (
-                <Card key={item.id} className="shadow-card">
-                  <CardContent className="p-6">
-                    <div className="flex gap-4">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-20 h-20 object-cover rounded-md"
-                      />
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-lg">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm">{item.description}</p>
-                        <p className="text-lg font-bold text-primary mt-2">{item.price} ج.م</p>
+                <Card key={item.code} className="overflow-hidden">
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-20 h-20 object-cover rounded"
+                        />
+                        <div>
+                          <h3 className="font-medium">{item.title}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {item.price.toFixed(2)} ج.م
+                            {item.code && <span className="text-xs block text-gray-500">كود: {item.code}</span>}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex flex-col items-end gap-3">
+                      <div className="flex items-center space-x-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleUpdateQuantity(item.code, item.quantity - 1)}
+                          className="w-8 h-8 p-0"
+                        >
+                          <Minus className="w-4 h-4" />
+                        </Button>
+                        <span className="w-8 text-center font-medium">{item.quantity}</span>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleUpdateQuantity(item.code, item.quantity + 1)}
+                          className="w-8 h-8 p-0"
+                        >
+                          <Plus className="w-4 h-4" />
+                        </Button>
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => removeFromCart(String(item.id))}
-                          className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                          onClick={() => handleRemoveItem(item.code)}
+                          className="text-destructive hover:text-destructive"
                         >
                           <Trash2 className="w-4 h-4" />
                         </Button>
-                        <div className="flex items-center gap-2">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => updateQuantity(String(item.id), item.quantity - 1)}
-                            className="w-8 h-8 p-0"
-                          >
-                            <Minus className="w-4 h-4" />
-                          </Button>
-                          <span className="w-8 text-center font-medium">{item.quantity}</span>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => updateQuantity(String(item.id), item.quantity + 1)}
-                            className="w-8 h-8 p-0"
-                          >
-                            <Plus className="w-4 h-4" />
-                          </Button>
-                        </div>
                       </div>
                     </div>
                   </CardContent>

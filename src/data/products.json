@@ -25,7 +25,6 @@
   },
   {
     "id": 4,
-    "code": "SG-001",
     "title": "نظارات شمسية أنيقة - Stylish Sunglasses",
     "description": "نظارات شمسية عصرية بحماية كاملة من الأشعة فوق البنفسجية.",
     "price": 1599,
@@ -33,15 +32,13 @@
   },
   {
     "id": 5,
-    "code": "BP-001",
-    "title": "حقيبة ظهر عصرية - Modern Backpack",
-    "description": "حقيبة ظهر متينة وعملية مع جيوب متعددة وتصميم مريح.",
-    "price": 2499,
+    "title": "ساعة ذكية - Smart Watch",
+    "description": "ساعة ذكية متقدمة لتتبع اللياقة البدنية والإشعارات الذكية.",
+    "price": 4999,
     "image": "/images/smartwatch.jpg"
   },
   {
     "id": 6,
-    "code": "PB-001",
     "title": "بنك طاقة محمول - Portable Power Bank",
     "description": "شاحن محمول بسعة كبيرة لشحن جميع أجهزتك في أي مكان.",
     "price": 999,

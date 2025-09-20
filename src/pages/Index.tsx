@@ -19,63 +19,33 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
 
   // Helper function to process products data
-  const processProducts = (data: any[], baseUrl: string = '') => {
-    // Update image paths to include the base URL if needed
-    const processedData = data.map((product: any) => {
-      // Create a new image URL that works in both dev and prod
-      let imageUrl = product.image;
-      if (imageUrl && imageUrl.startsWith('/')) {
-        // For absolute paths, prepend the base URL in production
-        imageUrl = `${baseUrl}${imageUrl}`.replace(/\/+$/, '');
-      }
-      
-      return {
-        ...product,
-        image: imageUrl
-      };
-    });
-    
-    return processedData;
+  const processProducts = (data: any[]) => {
+    // Just return the data as is - all image processing is now handled in ProductCard
+    return [...data];
   };
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        // In development, we can use dynamic import
         const isDev = import.meta.env.DEV;
-        const baseUrl = import.meta.env.BASE_URL || '';
-        
-        let productsData: any[] = [];
+        let productsData;
         
         if (isDev) {
-          // In development, use import to get the JSON data
-          const module = await import('@/../public/products.json');
+          // In development, use dynamic import
+          const module = await import('@/data/products.json');
           productsData = module.default;
         } else {
           // In production, fetch from the public directory
-          const productsPath = `${baseUrl}/products.json`.replace(/\/+$/, '');
-          const url = new URL(productsPath, window.location.origin);
-          
-          const response = await fetch(url.toString(), {
-            headers: {
-              'Cache-Control': 'no-cache',
-              'Pragma': 'no-cache'
-            }
-          });
-          
-          if (!response.ok) {
-            throw new Error(`Failed to fetch products from ${url.toString()}`);
-          }
-          
+          const response = await fetch('/products.json');
           productsData = await response.json();
         }
         
-        // Process the products data
-        const processedProducts = processProducts(productsData, isDev ? '' : baseUrl);
-        
+        const processedProducts = processProducts(productsData);
         setProducts(processedProducts);
         setFilteredProducts(processedProducts);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('Error loading products:', error);
         // Set empty arrays to prevent errors in the UI
         setProducts([]);
         setFilteredProducts([]);
@@ -83,7 +53,7 @@ const Index = () => {
         setLoading(false);
       }
     };
-
+    
     fetchProducts();
   }, []);
 
