@@ -93,9 +93,14 @@ const Cart = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4 rtl:space-x-reverse">
                         <img
-                          src={item.image}
+                          src={item.image.startsWith('http') ? item.image : `${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`}
                           alt={item.title}
                           className="w-20 h-20 object-cover rounded"
+                          onError={(e) => {
+                            // Fallback to a placeholder if image fails to load
+                            const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+                            e.currentTarget.src = `${base}/placeholder.svg`;
+                          }}
                         />
                         <div>
                           <h3 className="font-medium">{item.title}</h3>
