@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => {
   const base = isProduction ? '/joo-store/' : '/';
   
   return {
+    base,
     server: {
       host: "localhost",
       port: 3000,
@@ -18,8 +19,21 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       strictPort: true,
     },
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets',
+      sourcemap: true,
+      emptyOutDir: true,
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name]-[hash][extname]',
+          chunkFileNames: 'assets/[name]-[hash].js',
+          entryFileNames: 'assets/[name]-[hash].js',
+        },
+      },
+    },
+    publicDir: 'public',
     plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-    base,
     define: {
       'import.meta.env.BASE_URL': JSON.stringify(base),
       'import.meta.env.PROD': JSON.stringify(mode === 'production'),
@@ -32,17 +46,5 @@ export default defineConfig(({ mode }) => {
       },
     },
     assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg'],
-    build: {
-      outDir: 'dist',
-      assetsDir: 'assets',
-      emptyOutDir: true,
-      rollupOptions: {
-        output: {
-          assetFileNames: 'assets/[name]-[hash][extname]',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          entryFileNames: 'assets/[name]-[hash].js',
-        },
-      },
-    },
   };
 });

@@ -27,18 +27,19 @@ const Index = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // In development, we can use dynamic import
-        const isDev = import.meta.env.DEV;
         let productsData;
         
-        if (isDev) {
-          // In development, use dynamic import
+        // Always try to fetch from the public directory first (works in both dev and prod)
+        try {
+          const base = import.meta.env.BASE_URL || '';
+          const response = await fetch(`${base}/products.json`);
+          if (!response.ok) throw new Error('Failed to fetch products');
+          productsData = await response.json();
+        } catch (fetchError) {
+          console.log('Falling back to direct import...');
+          // Fallback to direct import if fetch fails (for development)
           const module = await import('@/data/products.json');
           productsData = module.default;
-        } else {
-          // In production, fetch from the public directory
-          const response = await fetch('/products.json');
-          productsData = await response.json();
         }
         
         const processedProducts = processProducts(productsData);
