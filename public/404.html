@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    // Get the current path and redirect to the app with the base URL
+    const base = '/joo-store';
+    const path = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    
+    // Remove the base if it's already in the path
+    const cleanPath = path.startsWith(base) ? path.substring(base.length) : path;
+    
+    // Redirect to the app with the base URL
+    window.location.href = `${base}${cleanPath}${search}${hash}`;
+  </script>
+</head>
+<body>
+  <p>Redirecting to the application...</p>
+  <p>If you are not redirected automatically, <a id="redirectLink" href="/joo-store">click here</a>.</p>
+  <script>
+    // Fallback in case the redirect doesn't work
+    document.getElementById('redirectLink').href = `${base}${window.location.pathname}${window.location.search}${window.location.hash}`;
+  </script>
+</body>
+</html>

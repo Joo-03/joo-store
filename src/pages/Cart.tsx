@@ -69,7 +69,7 @@ const Cart = () => {
                         <Button
                           variant="ghost"
                           size="sm"
-                          onClick={() => removeFromCart(item.id)}
+                          onClick={() => removeFromCart(String(item.id))}
                           className="text-destructive hover:text-destructive hover:bg-destructive/10"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -78,7 +78,7 @@ const Cart = () => {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            onClick={() => updateQuantity(String(item.id), item.quantity - 1)}
                             className="w-8 h-8 p-0"
                           >
                             <Minus className="w-4 h-4" />
@@ -87,7 +87,7 @@ const Cart = () => {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            onClick={() => updateQuantity(String(item.id), item.quantity + 1)}
                             className="w-8 h-8 p-0"
                           >
                             <Plus className="w-4 h-4" />
