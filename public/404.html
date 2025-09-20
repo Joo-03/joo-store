@@ -5,29 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
   <script>
-    // Get the current path and redirect to the app with the base URL
-    const base = '/joo-store';
-    const path = window.location.pathname;
-    const search = window.location.search;
-    const hash = window.location.hash;
-    
-    // Remove the base if it's already in the path
-    const cleanPath = path.startsWith(base) ? path.substring(base.length) : path;
-    
-    // Ensure we don't have double slashes
-    const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
-    const cleanPathFixed = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
-    
-    // Redirect to the app with the base URL
-    const redirectUrl = `${cleanBase}/index.html#${cleanPathFixed}${search}${hash}`;
-    
-    // Use replaceState to update the URL without adding to history
-    if (window.history.replaceState) {
-      window.history.replaceState({}, '', redirectUrl);
-      window.location.reload();
-    } else {
-      window.location.href = redirectUrl;
-    }
+    (function() {
+      const base = '/joo-store';
+      const path = window.location.pathname;
+      const search = window.location.search;
+      const hash = window.location.hash;
+      
+      // Remove the base if it's already in the path
+      const cleanPath = path.startsWith(base) ? path.substring(base.length) : path;
+      
+      // Clean up the path
+      const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+      let cleanPathFixed = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
+      
+      // If the path already contains index.html, just redirect to the base URL
+      if (cleanPathFixed.includes('index.html')) {
+        window.location.href = `${cleanBase}/${hash || ''}${search}`;
+        return;
+      }
+      
+      // If we already have a hash, use it directly
+      if (hash) {
+        window.location.href = `${cleanBase}/index.html${hash}${search}`;
+        return;
+      }
+      
+      // Otherwise, create a hash from the path
+      const pathHash = cleanPathFixed === '/' ? '' : `#${cleanPathFixed}`;
+      window.location.href = `${cleanBase}/index.html${pathHash}${search}`;
+    })();
   </script>
 </head>
 <body>
@@ -35,6 +41,7 @@
   <p>If you are not redirected automatically, <a id="redirectLink" href="/joo-store">click here</a>.</p>
   <script>
     // Fallback in case the redirect doesn't work
+    const base = '/joo-store';
     document.getElementById('redirectLink').href = `${base}${window.location.pathname}${window.location.search}${window.location.hash}`;
   </script>
 </body>
