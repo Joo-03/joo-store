@@ -14,8 +14,20 @@
     // Remove the base if it's already in the path
     const cleanPath = path.startsWith(base) ? path.substring(base.length) : path;
     
+    // Ensure we don't have double slashes
+    const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+    const cleanPathFixed = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
+    
     // Redirect to the app with the base URL
-    window.location.href = `${base}${cleanPath}${search}${hash}`;
+    const redirectUrl = `${cleanBase}/index.html#${cleanPathFixed}${search}${hash}`;
+    
+    // Use replaceState to update the URL without adding to history
+    if (window.history.replaceState) {
+      window.history.replaceState({}, '', redirectUrl);
+      window.location.reload();
+    } else {
+      window.location.href = redirectUrl;
+    }
   </script>
 </head>
 <body>
