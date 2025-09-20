@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
 import Index from "./pages/Index";
@@ -27,7 +27,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <CartProvider>
-          <BrowserRouter basename={base}>
+          <HashRouter>
             <Header />
             <Routes>
               <Route path="/" element={<Index />} />
@@ -36,7 +36,7 @@ const App = () => {
               <Route 
                 path="/404" 
                 element={
-                  <Navigate to={base} replace />
+                  <Navigate to="/" replace />
                 } 
               />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
@@ -49,7 +49,7 @@ const App = () => {
                 } 
               />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </CartProvider>
       </TooltipProvider>
     </QueryClientProvider>

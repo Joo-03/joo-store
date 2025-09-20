@@ -8,31 +8,30 @@
     (function() {
       const base = '/joo-store';
       const path = window.location.pathname;
-      const search = window.location.search;
-      const hash = window.location.hash;
+      const search = window.location.search || '';
+      const hash = window.location.hash || '';
+      
+      // If we're already at the root with a hash, let the SPA handle it
+      if (path.endsWith('/') || path.endsWith('/index.html')) {
+        // If we have a hash that doesn't start with #/, add it
+        if (hash && !hash.startsWith('#/')) {
+          window.location.replace(`${base}/index.html#/${hash.substring(1)}${search}`);
+        }
+        return;
+      }
       
       // Remove the base if it's already in the path
       const cleanPath = path.startsWith(base) ? path.substring(base.length) : path;
       
-      // Clean up the path
-      const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
-      let cleanPathFixed = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
-      
-      // If the path already contains index.html, just redirect to the base URL
-      if (cleanPathFixed.includes('index.html')) {
-        window.location.href = `${cleanBase}/${hash || ''}${search}`;
-        return;
+      // Create the new URL with hash-based routing
+      let route = cleanPath;
+      if (route.startsWith('/')) {
+        route = route.substring(1);
       }
       
-      // If we already have a hash, use it directly
-      if (hash) {
-        window.location.href = `${cleanBase}/index.html${hash}${search}`;
-        return;
-      }
-      
-      // Otherwise, create a hash from the path
-      const pathHash = cleanPathFixed === '/' ? '' : `#${cleanPathFixed}`;
-      window.location.href = `${cleanBase}/index.html${pathHash}${search}`;
+      // Redirect to the SPA with hash-based routing
+      const newUrl = `${base}/index.html#/${route}${search}${hash}`;
+      window.location.replace(newUrl);
     })();
   </script>
 </head>
