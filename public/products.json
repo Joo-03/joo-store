@@ -10,58 +10,58 @@
   {
     "id": 2,
     "code": "IP13-02",
-    "title": "",
-    "description": "جراب أيفون 13 فضاء- ",
+    "title": "جراب أيفون 13 - فضاء",
+    "description": "جراب أيفون 13 - فضاء",
     "price": 95,
     "image": "/images/IP13-02.jpg"
   },
   {
     "id": 3,
     "code": "IP13-03",
-    "title": "جراب أيفون 13 شفاف-",
-    "description": "جراب أيفون 13 - ",
+    "title": "جراب أيفون 13 - شفاف",
+    "description": "جراب أيفون 13 - شفاف",
     "price": 75,
     "image": "/images/IP13-03.jpg"
   },
   {
     "id": 4,
-    "code": "IP14-01",
+    "code": "IP14-1",
     "title":"جراب أيفون 14",
-    "description": "جراب أيفون 14 - ",
+    "description": "جراب أيفون 14",
     "price": 55,
-    "image": "/images/IP14-01.jpg"
+    "image": "/images/IP14-1.jpg"
   },
   {
     "id": 5,
     "code": "IP14-02",
-    "title": "جراب أيفون 14 - ",
-    "description": "جراب أيفون 14 - ",
+    "title": "جراب أيفون 14",
+    "description": "جراب أيفون 14",
     "price": 105,
     "image": "/images/IP14-02.jpg"
   },
   {
     "id": 6,
     "code": "IP11 Pro Max-01",
-    "title": "جراب أيفون  Pro Max 11- ",
-    "description": "جراب أيفون  Pro Max 11  - ",
+    "title": "جراب أيفون  11 برو ماكس",
+    "description": "جراب أيفون  11 برو ماكس",
     "price": 75,
     "image": "/images/IP11 Pro Max-01.jpg"
   },
   {
     "id": 7,
     "code": "IP11 Pro Max-02",
-    "title": "جراب أيفون  Pro Max 11",
-    "description": "جراب أيفون  Pro Max 11",
+    "title": "جراب أيفون 11 برو ماكس",
+    "description": "جراب أيفون 11 برو ماكس",
     "price": 105,
     "image": "/images/IP11 Pro Max-02.jpg"
   },
   {
     "id": 8,
-    "code": "SMa03s-01",
+    "code": "SMa03s",
     "title": "جراب سامسونج A03s",
-    "description": "  جراب سامسونج A03s  ",
+    "description": "جراب سامسونج A03s  ",
     "price": 85,
-    "image": "/images/SMa03s-01.jpg"
+    "image": "/images/SMa03s.jpg"
   },
   {
     "id": 9,
