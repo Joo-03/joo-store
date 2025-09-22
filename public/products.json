@@ -5,11 +5,6 @@
     "title": "جراب أيفون 13 - فراشة",
     "description": "جراب أيفون 13 - فراشة",
     "price": 105,
-    "image": "/images/IP13-01.jpg",
-    "code": "IP13-01",
-    "title": "جراب أيفون 13 - فراشة",
-    "description": "جراب أيفون 13 - فراشة",
-    "price": 105,
     "image": "/images/IP13-01.jpg"
   },
   {
@@ -77,31 +72,8 @@
     "image": "/images/RLTLS.jpg"
   },
   {
+   
     "id": 10,
-    "code": "X8",
-    "title": "ساعة ذكية ",
-    "description": "ساعة ذكية X8Ultra",
-    "price": 855,
-    "image": "/images/X8.jpg"
-  },
-  {
-    "id": 11,
-    "code": "C800",
-    "title": "ساعة ذكية",
-    "description": "ساعة ذكية C800",
-    "price": 655,
-    "image": "/images/C800.jpg"
-  },
-  {
-    "id": 12,
-    "code": "S51",
-    "title": "ساعة ذكية",
-    "description": "ساعة ذكية S51",
-    "price": 705,
-    "image": "/images/S51.jpg"
-  },
-  {
-    "id": 13,
     "code": "ST",
     "title": "استرابات ",
     "description": "استرابات الواحدة 85 جنيه",
@@ -109,7 +81,7 @@
     "image": "/images/ST.jpg"
   },
   {
-    "id": 14,
+    "id": 11,
     "code": "LN",
     "title": "عدسات كاميرا",
     "description": "عدسات كاميرا IPhone12pro ",
@@ -117,7 +89,7 @@
     "image": "/images/LN.jpg"
   },
   {
-    "id": 15,
+    "id": 12,
     "code": "SG",
     "title": "نظارة شمس",
     "description": "shein نظارة شمس",
