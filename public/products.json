@@ -1,50 +1,122 @@
 [
   {
     "id": 1,
-    "code": "PH-001",
-    "title": "هاتف ذكي متطور - Advanced Smartphone",
-    "description": "هاتف ذكي بأحدث التقنيات وتصميم أنيق مع كاميرا عالية الجودة.",
-    "price": 11999,
-    "image": "/images/smartphone.jpg"
+    "code": "IP13-01",
+    "title": "جراب أيفون 13 - فراشة",
+    "description": "جراب أيفون 13 - فراشة",
+    "price": 105,
+    "image": "/images/IP13-01.jpg"
   },
   {
     "id": 2,
-    "code": "HP-001",
-    "title": "سماعات لاسلكية - Wireless Headphones",
-    "description": "سماعات بلوتوث عالية الجودة مع إلغاء الضوضاء وصوت نقي.",
-    "price": 3999,
-    "image": "/images/headphones.jpg"
+    "code": "IP13-02",
+    "title": "",
+    "description": "جراب أيفون 13 فضاء- ",
+    "price": 95,
+    "image": "/images/IP13-02.jpg"
   },
   {
     "id": 3,
-    "code": "LP-001",
-    "title": "لابتوب محمول - Portable Laptop",
-    "description": "جهاز كمبيوتر محمول قوي ومناسب للعمل والدراسة والترفيه.",
-    "price": 17999,
-    "image": "/images/laptop.jpg"
+    "code": "IP13-03",
+    "title": "جراب أيفون 13 شفاف-",
+    "description": "جراب أيفون 13 - ",
+    "price": 75,
+    "image": "/images/IP13-03.jpg"
   },
   {
     "id": 4,
-    "code": "SG-001",
-    "title": "نظارات شمسية أنيقة - Stylish Sunglasses",
-    "description": "نظارات شمسية عصرية بحماية كاملة من الأشعة فوق البنفسجية.",
-    "price": 1599,
-    "image": "/images/sunglasses.jpg"
+    "code": "IP14-01",
+    "title":"جراب أيفون 14",
+    "description": "جراب أيفون 14 - ",
+    "price": 55,
+    "image": "/images/IP14-01.jpg"
   },
   {
     "id": 5,
-    "code": "BP-001",
-    "title": "حقيبة ظهر عصرية - Modern Backpack",
-    "description": "حقيبة ظهر متينة وعملية مع جيوب متعددة وتصميم مريح.",
-    "price": 2499,
-    "image": "/images/smartwatch.jpg"
+    "code": "IP14-02",
+    "title": "جراب أيفون 14 - ",
+    "description": "جراب أيفون 14 - ",
+    "price": 105,
+    "image": "/images/IP14-02.jpg"
   },
   {
     "id": 6,
-    "code": "PB-001",
-    "title": "بنك طاقة محمول - Portable Power Bank",
-    "description": "شاحن محمول بسعة كبيرة لشحن جميع أجهزتك في أي مكان.",
-    "price": 999,
-    "image": "/images/powerbank.jpg"
+    "code": "IP11 Pro Max-01",
+    "title": "جراب أيفون  Pro Max 11- ",
+    "description": "جراب أيفون  Pro Max 11  - ",
+    "price": 75,
+    "image": "/images/IP11 Pro Max-01.jpg"
+  },
+  {
+    "id": 7,
+    "code": "IP11 Pro Max-02",
+    "title": "جراب أيفون  Pro Max 11",
+    "description": "جراب أيفون  Pro Max 11",
+    "price": 105,
+    "image": "/images/IP11 Pro Max-02.jpg"
+  },
+  {
+    "id": 8,
+    "code": "SMa03s-01",
+    "title": "جراب سامسونج A03s",
+    "description": "  جراب سامسونج A03s  ",
+    "price": 85,
+    "image": "/images/SMa03s-01.jpg"
+  },
+  {
+    "id": 9,
+    "code": "RLTLS",
+    "title": "ابجورة 4 في 1",
+    "description": "ابجورة وصب و ساعة و شاحن لاسلكي",
+    "price": 350,
+    "image": "/images/RLTLS.jpg"
+  },
+  {
+    "id": 10,
+    "code": "X8",
+    "title": "ساعة ذكية ",
+    "description": "ساعة ذكية X8Ultra",
+    "price": 855,
+    "image": "/images/X8.jpg"
+  },
+  {
+    "id": 11,
+    "code": "C800",
+    "title": "ساعة ذكية",
+    "description": "ساعة ذكية C800",
+    "price": 655,
+    "image": "/images/C800.jpg"
+  },
+  {
+    "id": 12,
+    "code": "S51",
+    "title": "ساعة ذكية",
+    "description": "ساعة ذكية S51",
+    "price": 705,
+    "image": "/images/S51.jpg"
+  },
+  {
+    "id": 13,
+    "code": "ST",
+    "title": "استرابات ",
+    "description": "استرابات الواحدة 85 جنيه",
+    "price": 240,
+    "image": "/images/ST.jpg"
+  },
+  {
+    "id": 14,
+    "code": "LN",
+    "title": "عدسات كاميرا",
+    "description": "عدسات كاميرا IPhone12pro ",
+    "price": 80,
+    "image": "/images/LN.jpg"
+  },
+  {
+    "id": 15,
+    "code": "SG",
+    "title": "نظارة شمس",
+    "description": "shein نظارة شمس",
+    "price": 55,
+    "image": "/images/SG.jpg"
   }
 ]
